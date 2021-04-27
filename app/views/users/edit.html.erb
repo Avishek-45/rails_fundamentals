@@ -1,9 +1,15 @@
+<div class="mt-3">
+<h3 class="mb-5">Edit User's data</h3>
 <%= form_for(@user, method: :put) do |f| %>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %><br/><br/>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %><br/><br/>
-    <%= f.label :email %>
-    <%= f.text_field :email %><br/><br/>
-    <%= f.submit 'Update User' %>
+    <%= f.label :first_name %>:
+    <%= f.text_field :first_name  %><br/><br/>
+    <%= f.label :last_name %>:
+    <%= f.text_field :last_name  %><br/><br/>
+    <%= f.label :email %>:
+    <%= f.text_field :email      %><br/><br/>
+    <%= f.label :phone %>:
+    <%= f.number_field :phone    %><br/><br/>
+    <%= f.submit 'Update User' ,class:'btn btn-success' %>
+    <%= link_to "Go Back", user_path ,class:'btn btn-primary'%>
 <% end %>
+</div>

@@ -1,5 +1,5 @@
 <div class="index_main">
-<div class="index_main_link">
+<div class="index_main_link mt-1">
 <span><%= link_to 'View all users', users_path ,class:'user' %></span>
 <span><%= link_to 'Add new journal', new_journal_path, class:'journal' %></span><br/><br/>
 </div>
@@ -10,10 +10,14 @@
     <span class="total_expense">Total Expenses: <b><%=Journal.total_expense %> </b></span>
 </div><br><br>
 
-<% form_tag(journals_path,method:"get") do %>
-<select name="filter">
-<option value="N"></option>
-    <% end%>    
+<div class="mb-3 ">
+<%= form_tag(journals_path,method:"get") do %>
+    <label><b>Filter:</b></label>
+    <%= button_tag t('Cash In'), type: "submit", name: "check_cash", value: "cash_in", class:'btn btn-info ' %>
+    <%= button_tag t('Cash Out'), type: "submit", name: "check_cash", value: "cash_out", class:'btn btn-info ' %>
+    <%= button_tag t('None'), type: "submit", name: "check_cash", value: "None" , class:'btn btn-info '%>
+<% end%> 
+</div>
 <table >
     <tr>
         <th>User</th>
@@ -44,4 +48,5 @@
     </tr>
     <%end%>
 </table>
+
 </div>

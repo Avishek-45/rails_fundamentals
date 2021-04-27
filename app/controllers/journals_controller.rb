@@ -1,6 +1,7 @@
 class JournalsController < ApplicationController
     def index
-        @journals = Journal.all 
+        @journals=Journal.filter(params[:check_cash])
+        
     end
 
     def show

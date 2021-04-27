@@ -1,3 +1,5 @@
+<div class="mt-3">
+<h3 class="mb-5">Add new user</h3>
 <%= form_for(@user) do |f| %>
     <%= f.label :first_name %>
     <%= f.text_field :first_name %><br/><br/>
@@ -7,5 +9,7 @@
     <%= f.text_field :email %><br/><br/>
     <%= f.label :phone %>
     <%= f.text_field :phone %><br/><br/>
-    <%= f.submit 'Create User' %>
+    <%= f.submit 'Create User',class:'btn btn-success' %>
+    <%= link_to 'User Home', users_path ,class:'btn btn-success' %>
 <% end %>
+</div>

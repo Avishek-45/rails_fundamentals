@@ -1,16 +1,27 @@
-<%= link_to 'View all journals', journals_path %><br><br>
-<%= link_to 'Add new user', new_user_path %><br/><br/>
+<div class="d-flex justify-content-center m-2">
+<span class="border p-2"><%= link_to 'View all journals', journals_path %></span>
+<span class="border p-2"><%= link_to 'Add new user', new_user_path %></span><br/><br/>
+</div>
+<table >
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Show/Delete</th>
+    </tr>
+    <tr>
+    <% @user.each do |user| %>
 
-<% @user.each do |user| %>
-    <label>First Name:</label>
-    <%= user.first_name %><br/>
-    <label>Last Name:</label>
-    <%= user.last_name %><br/>
-    <label>Email:</label>
-    <%= user.email %><br>
-    <label>phone:</label>
-    <%= user.phone %><br>
-    <%= link_to 'Show', user_path(user) %>
-    <%= link_to 'Delete', user_path(user),method: :delete %><br>
-    <br><br>
-<% end%>
+            <td><%= user.first_name %></td>
+            <td><%= user.last_name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.phone %></td>
+            <td>
+            <span><%= link_to 'Show', user_path(user),class:'btn btn-primary' %></span>
+            <span><%= link_to 'Delete', user_path(user), method: :delete,class:'btn btn-primary' %></span>
+            </td>
+            
+    </tr>
+    <%end%>
+</table>
