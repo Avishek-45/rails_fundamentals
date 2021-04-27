@@ -1,0 +1,13 @@
+
+<h3>This is <%= @user.first_name %>'s profile</h3>
+<label>First Name:</label>
+<%= @user.first_name %><br/>
+<label>Last Name:</label>
+<%= @user.last_name %><br/>
+<label>Email:</label>
+<%= @user.email %><br>
+<label>phone:</label>
+<%= @user.phone %><br>
+<br/><br/>
+<%= link_to 'Edit user', edit_user_path(@user) %>
+<%= link_to 'user home', users_path%>

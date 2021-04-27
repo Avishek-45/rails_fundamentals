@@ -1,0 +1,22 @@
+<div class="show_tot">
+<h3 class="show_tot_income">Total Income: <%= Journal.user_total_income(@journal.user_id) %></h3>
+<h3 class="show_tot_expense">Total Expense: <%= Journal.user_total_expense(@journal.user_id) %></h3>
+</div>
+ <label>Journal title: <%= @journal.title %>
+ </label><br><br>
+ <label>Date created: <%=@journal.created_at.strftime("%B %d %Y, %l:%M%P") %></label><br><br>
+ <label>Amount: <%=  @journal.amount %></label><br/><br>
+
+ <label>Cash In/Out: 
+ <% if @journal.cash_inOut=='true'%>
+    Cash In
+    <% else %>
+    Cash Out
+    <% end %> 
+    </label><br><br>
+
+ <label>Aurthor:</label>
+ <%= link_to @journal.user.full_name, user_path(@journal.user) %><br/><br>
+
+ <%= link_to 'Edit journal',  edit_journal_path(@journal),class:'show_edit'%>
+

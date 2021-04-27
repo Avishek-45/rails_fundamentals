@@ -1,0 +1,66 @@
+// Place all the styles related to the journals controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+$border :1px black solid;
+$padding-1: 10px;
+
+table{
+    margin: auto;
+    height: auto;
+    border: $border;
+    tr {
+        border: $border;
+        background-color: aquamarine;
+    }
+    td,th{
+        padding: $padding-1;
+        border: $border;
+    }
+
+}
+
+.index_main{
+    text-align: center;
+    margin-top: 5px;
+    &_link{
+        span{
+            border: 1px solid black;
+            padding: $padding-1;
+        }
+    }
+}
+
+.total{
+    display: flex;
+    justify-content: space-evenly;
+
+    &_income,&_expense{
+        background-color: seagreen;
+        color:#fff;
+        padding: $padding-1;
+        border-radius: 6px;
+    }
+}
+
+.show{
+    &_tot{
+
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 10px;
+
+        &_income,&_expense{
+            background-color: seagreen;
+            color:#fff;
+            padding: $padding-1;
+            border-radius: 6px;
+        }
+    }
+    &_edit{
+        background-color: #8e21;
+        color:#fff;
+        padding: $padding-1;
+        border-radius: 6px;
+    }
+}

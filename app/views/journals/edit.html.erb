@@ -1,0 +1,9 @@
+<%= form_for(@journal, method: :put) do |f| %>
+    <%= f.label :title %>
+    <%= f.text_area:title %><br/><br/>
+    <%= f.label :amount %><br/>
+    <%= f.text_field :amount %><br/><br/>
+    <%= f.select :cash_inOut, options_for_select([['Cash In',true],['Cash Out',false]])%><br/>
+    <%= f.select :user_id, options_for_select(User.all.map {|u| [u.full_name, u.id]}) %>
+    <%= f.submit 'Update Journal' %>
+<% end %>

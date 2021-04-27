@@ -1,0 +1,16 @@
+<%= link_to 'View all journals', journals_path %><br><br>
+<%= link_to 'Add new user', new_user_path %><br/><br/>
+
+<% @user.each do |user| %>
+    <label>First Name:</label>
+    <%= user.first_name %><br/>
+    <label>Last Name:</label>
+    <%= user.last_name %><br/>
+    <label>Email:</label>
+    <%= user.email %><br>
+    <label>phone:</label>
+    <%= user.phone %><br>
+    <%= link_to 'Show', user_path(user) %>
+    <%= link_to 'Delete', user_path(user),method: :delete %><br>
+    <br><br>
+<% end%>

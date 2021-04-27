@@ -1,0 +1,47 @@
+<div class="index_main">
+<div class="index_main_link">
+<span><%= link_to 'View all users', users_path ,class:'user' %></span>
+<span><%= link_to 'Add new journal', new_journal_path, class:'journal' %></span><br/><br/>
+</div>
+<div class="total">
+    
+    <span class="total_income">Total Income: <b><%=Journal.total_income%> </b></span>
+    
+    <span class="total_expense">Total Expenses: <b><%=Journal.total_expense %> </b></span>
+</div><br><br>
+
+<% form_tag(journals_path,method:"get") do %>
+<select name="filter">
+<option value="N"></option>
+    <% end%>    
+<table >
+    <tr>
+        <th>User</th>
+        <th>Title</th>
+        <th>Cash In/Out</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Show/Delete</th>
+    </tr>
+    <tr>
+    <% @journals.each do |journal| %>
+
+            <td><%=journal.user.full_name%></td>
+            <td><%=journal.title%></td>
+            <td><% if journal.cash_inOut=="true"%>
+                    Cash In
+                    <% else %>
+                    Cash Out
+                    <% end %> 
+            </td>
+            <td><%= journal.created_at.strftime("%B %d %Y")%></td>
+            <td><%=journal.amount%></td>
+            <td>
+            <span><%= link_to 'Show', journal_path(journal),class:'btn btn-primary' %></span>
+            <span><%= link_to 'Delete', journal_path(journal), method: :delete,class:'btn btn-primary' %></span>
+            </td>
+            
+    </tr>
+    <%end%>
+</table>
+</div>
